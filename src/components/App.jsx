@@ -3,7 +3,7 @@ import { Section } from './Section';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Statistics } from './Statistics';
 import { Extension } from './Extension';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -60,7 +60,7 @@ export class App extends Component {
 }
 
 Section.propTypes = {
-  title: string,
+  title: PropTypes.string,
 };
 
 FeedbackOptions.propTypes = {
