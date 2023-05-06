@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { Section } from './Section';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Statistics } from './Statistics';
+import { Extension } from './Extension';
+import PropTypes, { string } from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -51,7 +53,27 @@ export class App extends Component {
           total={countTotalFeedback}
           positivePercentage={countPositiveFeedbackPercentage}
         ></Statistics>
+        <Extension options={state} />
       </Section>
     );
   }
 }
+
+Section.propTypes = {
+  title: string,
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number.isRequired),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
+
+Statistics.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number.isRequired),
+  total: PropTypes.func.isRequired,
+  positivePercentage: PropTypes.func.isRequired,
+};
+
+Extension.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number.isRequired),
+};

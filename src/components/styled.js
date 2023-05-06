@@ -29,6 +29,7 @@ export const Button = styled.button`
   padding: 10px 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  text-transform: capitalize;
 
   &:hover {
     background-color: ${props => {
@@ -38,7 +39,9 @@ export const Button = styled.button`
         return 'rgb(243, 250, 114)';
       } else if (props.type === 'bad') {
         return 'salmon';
-      } else return;
+      } else {
+        return '#83e8ff';
+      }
     }};
     cursor: pointer;
     transition: all 250ms linear;
@@ -54,6 +57,7 @@ export const StatisticTitle = styled.h3`
 export const StatisticItem = styled.p`
   font-size: 18px;
   margin-bottom: 10px;
+  text-transform: capitalize;
 `;
 
 export const StatisticTotal = styled.p`
@@ -67,4 +71,11 @@ export const StatisticPercentage = styled.p`
   font-weight: bold;
   margin-bottom: 10px;
   color: rgb(90, 134, 87);
+`;
+
+export const ExtentionText = styled.p`
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 200px;
+  color: #ebc444;
 `;
