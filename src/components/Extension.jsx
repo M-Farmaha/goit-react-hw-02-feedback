@@ -1,4 +1,5 @@
 import * as Styled from './styled';
+import PropTypes from 'prop-types';
 
 export const Extension = ({ options }) => {
   return (
@@ -9,4 +10,8 @@ export const Extension = ({ options }) => {
       </Styled.ExtentionText>
     )
   );
+};
+
+Extension.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number.isRequired),
 };

@@ -1,24 +1,14 @@
 import * as Styled from './styled';
+import { Notification } from './Notification';
+import PropTypes from 'prop-types';
 
-export const Statistics = ({ options, total, positivePercentage }) => (
+export const Statistics = ({ total, children }) => (
   <>
     <Styled.StatisticTitle>Statistics</Styled.StatisticTitle>
-    {total() === 0 ? (
-      <Notification message="There is no feedback" />
-    ) : (
-      <>
-        {Object.entries(options).map(el => (
-          <Styled.StatisticItem key={el[0]}>
-            {el[0]}: {el[1]}
-          </Styled.StatisticItem>
-        ))}
-        <Styled.StatisticTotal>Total: {total()}</Styled.StatisticTotal>
-        <Styled.StatisticPercentage>
-          Positive feedback: {positivePercentage()}%
-        </Styled.StatisticPercentage>
-      </>
-    )}
+    {total() === 0 ? <Notification message="There is no feedback" /> : children}
   </>
 );
 
-const Notification = ({ message }) => <p>{message}</p>;
+Statistics.propTypes = {
+  total: PropTypes.func.isRequired,
+};

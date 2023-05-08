@@ -1,4 +1,5 @@
 import * as Styled from './styled';
+import PropTypes from 'prop-types';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <Styled.FeedbackOptions>
@@ -11,3 +12,8 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
     ))}
   </Styled.FeedbackOptions>
 );
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number.isRequired),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
